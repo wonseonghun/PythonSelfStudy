@@ -192,3 +192,94 @@ def hello(language: str, count: int):  # 수정 버전
 
 
 hello("Korea", 3)
+
+
+# --------------입력받은 정수의 모든 약수를 출력하는 함수 구현
+def print_divisor(num):
+    i = 1
+    while num >= i:
+        if num % i == 0:
+            print(f"{i}는 {num}의 약수입니다.")
+        i += 1
+
+
+print_divisor(1000)
+
+# -------------- 36강 입력받은 정수가 소수인지 아닌지 알려주는 함수를 구현해주세요. + 약수의 합
+
+
+def get_divisors_sum(num):
+    sum = 0
+    i = 1
+    while num >= i:
+        if num % i == 0:
+            sum += i
+        i += 1
+    return sum
+
+
+def isPrimeNumber(num):
+    if num < 2:
+        return False
+
+    i = 2
+    while num >= i:
+        if num % i == 0:
+            return False  # 이 리턴은 함수에 대한 return이다.
+        i += 1
+    return True  # 이렇게 하면 while문이 끝나고 온다.
+
+
+# 약수의 합을 이용한 소수 판별
+def isPrimeNumber2(num):
+    if num < 2:
+        return False
+
+    return get_divisors_sum(num) == num + 1
+
+
+# 지렸다...
+
+
+a = int(input("정수를 입력하세요: "))
+b = int(input("약수의 합을 알고 싶은 정수를 입력하세요 : "))
+
+if isPrimeNumber(a) == True:
+    print(f"{a}는 소수가 맞습니다.")
+else:
+    print(f"{a}는 소수가 아닙니다.")
+
+print(get_divisors_sum(b))
+
+
+# ----------36강 1부터 1000사이에 존재하는 소수들의 개수를 출력해주세요
+def getDivisorsSum(num):
+    s = 0
+    i = 1
+    while num >= i:
+        if num % i == 0:
+            s += i
+        i += 1
+    return s
+
+
+def isPrimeNumber3(num):
+    if num <= 1:
+        return False
+
+    return getDivisorsSum(num) == num + 1
+
+
+def countPrimeNumber(num):
+    i = 1
+    count = 0
+    while num >= i:
+        if isPrimeNumber3(i) == True:
+            count += 1
+        i += 1
+    return count
+
+
+a = int(input("소수들의 개수를 알고 싶은 숫자를 작성하세요 : "))
+print(countPrimeNumber(a))
+
