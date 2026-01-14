@@ -282,4 +282,3 @@ def countPrimeNumber(num):
 
 a = int(input("소수들의 개수를 알고 싶은 숫자를 작성하세요 : "))
 print(countPrimeNumber(a))
-
