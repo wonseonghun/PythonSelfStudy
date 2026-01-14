@@ -282,3 +282,52 @@ def countPrimeNumber(num):
 
 a = int(input("소수들의 개수를 알고 싶은 숫자를 작성하세요 : "))
 print(countPrimeNumber(a))
+
+
+# ----------------------------자리수 분석기
+# 문자열을 숫자열로 변환하라.
+# while을 사용해서 각 자리수의 합, 숫자 0의 개수, 짝수 자리의 개수
+n_str = "903040"
+n = int(n_str)
+
+digit_sum = 0
+zero_count = 0
+even_count = 0
+
+while n > 10:
+    last = n % 10
+    digit_sum += last
+    n = n // 10
+
+    if last == 0:
+        zero_count += 1
+
+    if last % 2 == 0:
+        even_count += 1
+
+print(f"각 자리 수의 합은 {digit_sum}입니다.")
+print(f"숫자 0의 개수는 {zero_count}입니다.")
+print(f"짝수 자리의 개수는 {even_count}입니다.")
+
+# ------------------------------------범위 구구단 필터 출력
+# n단부터 m단까지 출력한다.
+# dan이 짝수인 단만 출력한다.
+# 곱해지는 수 k는 1부터 limit까지
+# 단 출력은 결과값이 3의 배수인 것만 출력
+
+n = 3
+m = 12
+limit = 9
+dan = n
+if dan % 2 != 0:
+    dan += 1
+
+while dan >= n and dan <= m:
+    print(f"----{dan}----")
+    k = 1
+    while limit >= k:
+        if (dan * k) % 3 == 0:
+            print(f"{dan} x {k} = {dan*k}")
+        k += 1
+
+    dan += 2
