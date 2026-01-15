@@ -1,3 +1,4 @@
+'''
 # ----------------- 리스트에 순서대로 2,1,5,6,7을 한번에 담아주세요.
 TestList = []
 # TestList.append(2,1,5,6,7), 한번에 안됨.
@@ -261,3 +262,33 @@ while len(nums) > i:
     i+=1
     
 print(sum)
+
+'''
+#-----------------------------------------for문으로 구구단 출력
+
+for dan in range(1,10):
+    print(f"======{dan}단======")
+    for nums in range(1,10):
+        print(f"{dan} x {nums} = {dan * nums}")
+        
+        
+#----------------------------------------for문으로 1부터 n까지 존재하는 소수의 합
+print("넣을 숫자릅 입력하세요 :", end=' ')
+n = int(input())
+
+
+print(type(n))
+sum = 0
+if n <=1:
+    print("1보다 큰 숫자를 입력하세요")
+elif n ==2:
+    print("소수의 합은 2입니다.")
+else:
+    sum = 2
+    for i in range(2,n+1):  
+        for k in range(2,i):
+                if  i % k == 0:
+                    
+
+    print(f"소수의 합은 {sum}입니다.")
+                    
