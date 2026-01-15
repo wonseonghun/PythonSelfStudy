@@ -132,3 +132,102 @@ i = 1
 while 10 >= i:
     numbers.append(i)
     i += 1
+
+# -----------리스트 왼쪽 회전
+# 리스트 a를 왼쪽으로 k칸 회전시켜라.
+
+
+a = [10, 20, 30, 40, 50]
+k = 3
+i = 1
+
+while k >= i:
+    b = a[0]
+    del a[0]
+    a.append(b)
+    i += 1
+
+print(a)
+
+# -----------원본 보존 + 중복 제거 정렬함수
+# 원본 nums는 절대 훼손하면 안 됨
+# nums의 값을 중복 제거해서 정렬된 새 리스트를 리턴
+# descending=True면 내림차순, 아니면 오름차순
+
+
+def make_unique_sorted(nums, descending):
+    nums_2 = sorted(nums, reverse=descending)
+
+    i = 1
+
+    while len(nums_2) > i:
+        if nums_2[i - 1] == nums_2[i]:
+            del nums_2[i]
+        else:
+            i += 1
+
+    return nums_2
+
+
+nums = [3, 1, 4, 1, 5, 9, 1, 6, 5, 3, 5]
+descending = False
+print(make_unique_sorted(nums, descending))
+print(nums)
+
+# -------------------조건에 맞는 첫 값 찾기
+#  nums의 복사본을 내림차순 정렬(원본 훼손 금지)
+# 7의 배수는 맞는데
+# 14의 배수는 아닌 값 (즉, 7로 나누어 떨어지지만 14로는 안 나누어 떨어짐)
+# 조건에 맞는 값이 없으면 "NONE" 출력
+
+
+def func(nums):
+    nums_2 = sorted(nums, reverse=True)
+    i = 0
+    while len(nums_2) > i:
+        if nums_2[i] % 7 == 0 and nums_2[i] % 14 != 0:
+            return nums_2[i]
+        else:
+            i += 1
+
+    return None
+
+
+nums = [13, 21, 4, 7, 28, 5, 14, 70, 49]
+print(func(nums))
+
+# -------------------------------- 45강 문제 모음
+numbers = [10, 20, 30, 40, 50, 60, 70, 80, 90]
+
+# 1. 기본 슬라이싱 => 요소야. 요소
+rs = numbers[1:4]
+rs = numbers[:3]
+print(rs)
+# 2.음수인덱스 사용
+rs_2 = numbers[-3:]  # [-3 : 0]은 실행안됨.
+print(rs_2)
+
+# 3. 스텝 이용 슬라이싱
+rs_3 = numbers[0::2]
+rs_3 = numbers[::2]  # 더 정답
+print(rs_3)
+
+# 4. 역순 슬라이싱
+rs_4 = numbers[::-1]
+print(rs_4)
+
+# 5. 복잡한 슬라이싱
+rs_5 = numbers[1::2]
+rs_5 = numbers[1:-1:2]  # 이렇게도 쓸 수 있다.
+print(rs_5)
+
+# ----------------------------AI 문제
+# 슬라이싱만 이용해서 a를 3등분해라
+a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+
+i = len(a)
+
+if i % 3 == 0:
+    p1 = a[0 : i // 3 ]           #슬라이스 인덱스는 정수여야 해서 /가 아닌 // 사용 필수 
+    p2 = a[i // 3 : i * 2 // 3 ]  
+    p3 = a[i * 2 // 3 :]
