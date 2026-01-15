@@ -40,16 +40,12 @@ a.index(1, 3)  # a = [1,3,2,3,4] # 특정 위치에 값 추가 함수, insert(in
 
 del a[1]  # a = [1,2,3,4] , del a[index], 특정 위치 값 삭제
 
-a.index(4) # 4라는 요소값의 위치를 알려주는 함수, a.index(value)
+a.index(4)  # 4라는 요소값의 위치를 알려주는 함수, a.index(value)
 
 a[0] = 10  # 리스트값 수정, 0번째 값을 10으로 수정
 
 len(a)  # 리스트의 길이, len(var)
 
-a.sort() # 리스트 정렬, 오름차순
+a.sort()  # 리스트 정렬, 오름차순
 
-a.reverse() #리스트 뒤집기
-
-
-
-
+a.reverse()  # 리스트 뒤집기
