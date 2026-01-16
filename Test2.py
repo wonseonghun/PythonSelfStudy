@@ -276,19 +276,23 @@ for dan in range(1,10):
 print("넣을 숫자릅 입력하세요 :", end=' ')
 n = int(input())
 
+def Sum_Prime(n):
+    sum = 0
+    if n <=1:
+        print("1보다 큰 정수를 입력하세요")
+        return
+    
 
-print(type(n))
-sum = 0
-if n <=1:
-    print("1보다 큰 숫자를 입력하세요")
-elif n ==2:
-    print("소수의 합은 2입니다.")
-else:
-    sum = 2
-    for i in range(2,n+1):  
-        for k in range(2,i):
-                if  i % k == 0:
-                    
+    for i in range(2,n+1):
+        is_Prime =True 
+        
+        for k in range(2, i):
+            if i % k == 0:
+                is_Prime =False
+                break
 
+        if is_Prime:  
+            sum += i
+                                                               
     print(f"소수의 합은 {sum}입니다.")
                     
