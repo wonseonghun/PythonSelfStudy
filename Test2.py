@@ -1,4 +1,4 @@
-'''
+"""
 # ----------------- 리스트에 순서대로 2,1,5,6,7을 한번에 담아주세요.
 TestList = []
 # TestList.append(2,1,5,6,7), 한번에 안됨.
@@ -229,8 +229,8 @@ a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 i = len(a)
 
 if i % 3 == 0:
-    p1 = a[0 : i // 3 ]           #슬라이스 인덱스는 정수여야 해서 /가 아닌 // 사용 필수 
-    p2 = a[i // 3 : i * 2 // 3 ]  
+    p1 = a[0 : i // 3 ]           #슬라이스 인덱스는 정수여야 해서 /가 아닌 // 사용 필수
+    p2 = a[i // 3 : i * 2 // 3 ]
     p3 = a[i * 2 // 3 :]
 
 
@@ -260,18 +260,18 @@ sum = 0
 while len(nums) > i:
     sum += nums[i]
     i+=1
-    
+
 print(sum)
 
-'''
+
 #-----------------------------------------for문으로 구구단 출력
 
 for dan in range(1,10):
     print(f"======{dan}단======")
     for nums in range(1,10):
         print(f"{dan} x {nums} = {dan * nums}")
-        
-        
+
+
 #----------------------------------------for문으로 1부터 n까지 존재하는 소수의 합
 print("넣을 숫자릅 입력하세요 :", end=' ')
 n = int(input())
@@ -281,18 +281,42 @@ def Sum_Prime(n):
     if n <=1:
         print("1보다 큰 정수를 입력하세요")
         return
-    
+
 
     for i in range(2,n+1):
-        is_Prime =True 
-        
+        is_Prime =True
+
         for k in range(2, i):
             if i % k == 0:
                 is_Prime =False
                 break
 
-        if is_Prime:  
+        if is_Prime:
             sum += i
-                                                               
+
     print(f"소수의 합은 {sum}입니다.")
-                    
+"""
+
+# ----------------------------------------for문으로 1부터 n까지 존재하는 소수의 합 다시
+
+
+def is_Prime(n):
+    if n <= 1:
+        return False
+    for i in range(2, n):
+        if n % i == 0:
+            return False
+    return True
+
+
+def Sum_Prime(n):
+    sum = 0
+    for i in range(1, n + 1):
+        if is_Prime(i):
+            sum += i
+
+    return sum
+
+
+n = int(input())
+print(Sum_Prime(n))
