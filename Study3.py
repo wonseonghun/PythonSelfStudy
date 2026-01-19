@@ -25,7 +25,7 @@ print(ages["짱구"])
 print(ages["맹구"])
 print(ages)
 
-ages["나미리"] = (50) # 딕셔너리 데이터 추가., key 세팅한다고 말함. / 딕셔너리 = key, value
+ages["나미리"] = 50 # 딕셔너리 데이터 추가., key 세팅한다고 말함. / 딕셔너리 = key, value
 print(ages)
 ages["나미리"] = 60  # 이건 값 수정
 print(ages)
