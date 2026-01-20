@@ -14,33 +14,33 @@ month_end_days = {
     "12월": 31,
 }
 
-#print(month_end_days["1월"])
+# print(month_end_days["1월"])
 
-#== 문제 : 딕셔너리에 각 달의 마지막 날들을 반복문을 통해 담기
+# == 문제 : 딕셔너리에 각 달의 마지막 날들을 반복문을 통해 담기
 
-for i in range(1,13):
-  month = str(i) +"월"
-  if i ==2:
-    end_day =29
-  elif i in [1,3,5,7,8,10,12]:
-    end_day = 31
-  else:
-    end_day = 30
-    
-  
+for i in range(1, 13):
+    month = str(i) + "월"
+    if i == 2:
+        end_day = 29
+    elif i in [1, 3, 5, 7, 8, 10, 12]:
+        end_day = 31
+    else:
+        end_day = 30
+
+
 for month in month_end_days:
-  end_day=month_end_days[month]
-  print(f"{month}의 마지막 날은 {end_day}")
- 
-# 다른 버전 ----------------------------- 
-month_end_days_list_ver =[31,29,31,30,31,30,31,31,30,31,30,31]
+    end_day = month_end_days[month]
+    print(f"{month}의 마지막 날은 {end_day}")
 
-for i in range(0,12):
-  month_end_days[f"{i+1}월"] = month_end_days_list_ver[i]
-  print(month_end_days)
-  
+# 다른 버전 -----------------------------
+month_end_days_list_ver = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
-#==문제 : keys()를 이용해 순회출력==
+for i in range(0, 12):
+    month_end_days[f"{i+1}월"] = month_end_days_list_ver[i]
+    print(month_end_days)
+
+
+# ==문제 : keys()를 이용해 순회출력==
 month_end_days = {
     "1월": 31,
     "2월": 29,
@@ -57,10 +57,25 @@ month_end_days = {
 }
 
 for month in month_end_days.keys():
-  end_day =  month_end_days[month]
-  print(f"{month}의 마지막 날은 {end_day}입니다.")
-  
-for month, end_day in month_end_days.items():
-  print(f"{month}은 {end_day}일까지입니다.")
-  
+    end_day = month_end_days[month]
+    print(f"{month}의 마지막 날은 {end_day}입니다.")
 
+for month, end_day in month_end_days.items():
+    print(f"{month}은 {end_day}일까지입니다.")
+
+
+# ==============================문제 : 다음 코드가 동작하도록 class 완성
+
+
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def introduce(self):
+        print(f"안녕하세요 {self.age}살 {self.name}입니다.")
+
+
+p1 = Person("원성훈", 25)
+
+p1.introduce()

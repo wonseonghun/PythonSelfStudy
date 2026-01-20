@@ -69,30 +69,29 @@ for name, age in ages.items():
 
 # ===============================================================56강 클래스
 class Person:  # 1. 설계도(클래스) 선언
-    
+
     # 2. 생성자 메서드 (__init__)
     # 객체가 만들어질 때 '자동으로' 딱 한 번 실행됩니다.
     # 재료(name, age...)를 받아서 내 몸(self)에 저장하는 역할을 합니다.
-    def __init__(self, name, age, home, hobby): 
-        self.name = name    # 들어온 name을 내(self) 이름 공간에 저장
-        self.age = age      # 들어온 age를 내(self) 나이 공간에 저장
+    def __init__(self, name, age, home, hobby):
+        self.name = name  # 들어온 name을 내(self) 이름 공간에 저장
+        self.age = age  # 들어온 age를 내(self) 나이 공간에 저장
         self.home = home
-        self.hobby = hobby  
-    
-    
+        self.hobby = hobby
+
     # __str__ : 객체를 까보는 행위
     # 고객의 편의가 아닌 개발자의 편의를 위해 존재하는 함수
     # 디버깅할 때 해당 객체의 어떤 데이터가 들어있는지 확인 가능하게 한다.
-    def __str__(self): 
+    def __str__(self):
         return f"name : {self.name}, age : {self.age}, home : {self.home}, hobby : {self.hobby}"
-    
-        
+
     # 3. 메서드 (함수)
     # 이 클래스가 할 수 있는 행동을 정의합니다.
     def introduce(self):
-        print(f"저는 {self.home}사는 {self.age}살, 취미는 {self.hobby}인 {self.name}입니다.")
-        
-    
+        print(
+            f"저는 {self.home}사는 {self.age}살, 취미는 {self.hobby}인 {self.name}입니다."
+        )
+
 
 # ---------------------------------------------------------
 # 4. 객체 생성 (사용하기)
@@ -102,10 +101,54 @@ class Person:  # 1. 설계도(클래스) 선언
 # p1 = person(...) -> 에러 발생! (대문자 P여야 함, 파이썬은 대소문자 구분)
 
 # 올바른 생성 방법:
-p1 = Person("홍길동", 23, "안산", "테니스") 
-p2 = Person("김철수", 30, "서울", "축구")    # 하나 더 만들어봄
+p1 = Person("홍길동", 23, "안산", "테니스")
+p2 = Person("김철수", 30, "서울", "축구")  # 하나 더 만들어봄
 
 # 5. 사용
 p1.introduce()  # 홍길동이 자기소개
 p2.introduce()  # 김철수가 자기소개
-print(p1) # 주소가 나온다. 
+print(p1)  # __str__이 있으면 __str__값, 없으면 주소가 나옴
+
+p1.name = "임꺽정"  # 이렇게 데이터 변경도 가능
+
+
+# ===============================================================58강 클래스 상속 & 메서드 오버라이딩
+
+
+class Animal:
+    # pass :  class,메서드 안에 아무것도 정의하지 않을 때 사용
+
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def __str__(self):
+        return f"이름 : {self.name}, 나이 : {self.age}"
+
+    def breath(self):
+        print("숨을 쉽니다.")
+
+    def run(self):
+        print("달립니다.")
+
+
+class Person(Animal):  # Animal 안에 정의된 메서드를 사용하고 싶을 때 상속 받는다. is a
+    # Animal이 할 수 있는 일은 Person도 가능하다.
+    # 동물 클래스 : 부모 클래스, 사람 클래스 : 자식 클래스
+
+    def run(self):  # 위 클래스의 메소드 변경가능 / 메소드 오버라이딩
+        print(
+            "열심히 달립니다."
+        )  # 기능을 사용하다 보니 이 클래스 안에서 재정의하고 싶을 때 사용
+        # 사람 입장에서 run메소드는 2개 있지만, 자기 것 안에서 달리다 정의가 있기에 부모 달리다는 덮어씌워짐.
+
+    # 그러면 맨 위에 부모 클래스는 모두에게 필요한 메서드만 넣고 차례대로 넣어야 겠다.
+
+
+p3 = Person("홍길동", 20)
+print(p3)
+
+p3.run()
+
+
+# ======================================================웹 스크래핑

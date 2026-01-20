@@ -49,7 +49,7 @@ def find_contacts():
             return
 
     elif menu_2 == "2":
-        _phonenumber =input("전화번호를 작성하세요 : ")
+        _phonenumber = input("전화번호를 작성하세요 : ")
         for name, phonenumber in contacts.items():
             if _phonenumber == phonenumber:
                 print(f"{name}의 전화번호는 {_phonenumber}입니다.")

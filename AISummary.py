@@ -5,18 +5,18 @@
 # --------------------------------
 # 1) 출력(print) + 자료형(type)
 # --------------------------------
-print("hello")     # 문자열(str)
-print(10)          # 정수(int)
+print("hello")  # 문자열(str)
+print(10)  # 정수(int)
 
 print("안" + "녕")  # 문자열 덧셈(이어붙이기)
 
 # 형변환
 print(int("1") + int("2"))  # 3  (문자열 -> 정수)
-print(str(1) + str(1))      # "11" (정수 -> 문자열)
+print(str(1) + str(1))  # "11" (정수 -> 문자열)
 
 # 문자열 + 숫자 => 문자열로 변환 필요
 print("1 + 2 = " + str(1 + 2))
-print(f"1 + 2 = {1 + 2}")   # f-string (가장 자주 씀)
+print(f"1 + 2 = {1 + 2}")  # f-string (가장 자주 씀)
 
 # 따옴표 출력
 print("안녕하세요. 저는 '원성훈'입니다.")
@@ -27,7 +27,7 @@ print("{} + {} = {}".format(1, 2, 1 + 2))
 
 # 타입 확인
 a = 10
-print(type(a))      # <class 'int'>
+print(type(a))  # <class 'int'>
 print(type(False))  # <class 'bool'>
 
 
@@ -46,18 +46,18 @@ print(f"제 나이는 {age}고, 이름은 {name}입니다.")
 # 3) 연산자
 # --------------------------------
 # 사칙연산
-print(10 / 3)   # 3.333... (나눗셈, float)
+print(10 / 3)  # 3.333... (나눗셈, float)
 print(10 // 3)  # 3        (몫의 정수 부분)
-print(10 % 3)   # 1        (나머지)
-print(2 ** 3)   # 8        (제곱)
+print(10 % 3)  # 1        (나머지)
+print(2**3)  # 8        (제곱)
 
 # 비교연산(결과는 True/False)
-print(3 != 1)   # True  <- (원본 주석이 False였는데 실제는 True)
+print(3 != 1)  # True  <- (원본 주석이 False였는데 실제는 True)
 
 # 논리연산
 print(10 > 3 and 3 == 3)  # True
-print(10 < 3 or 4 != 2)   # True
-print(not False)          # True
+print(10 < 3 or 4 != 2)  # True
+print(not False)  # True
 
 # 우선순위: 사칙 > 비교 > 논리
 
@@ -119,16 +119,16 @@ while True:
     i += 1
 
 # for: range 기반 반복(자주 씀)
-for i in range(10):        # 0~9
+for i in range(10):  # 0~9
     print(i)
 
-for i in range(1, 14):     # 1~13
+for i in range(1, 14):  # 1~13
     print(i)
 
 for i in range(2, 11, 2):  # 2,4,6,8,10
     print(i)
 
-for i in range(10, 0, -1): # 10~1
+for i in range(10, 0, -1):  # 10~1
     print(i)
 
 
@@ -141,7 +141,9 @@ def print_2_dan():
     for i in range(1, 10):
         print(f"{dan} x {i} = {dan * i}")
 
+
 print_2_dan()
+
 
 # 매개변수(외부에서 값 넣어줌)
 def print_dan(start, end):
@@ -151,11 +153,14 @@ def print_dan(start, end):
         for num in range(1, 10):
             print(f"{dan} x {num} = {dan * num}")
 
+
 print_dan(3, 9)
+
 
 # return: 함수 실행 결과를 밖으로 돌려줌
 def func1():
     return 10
+
 
 x = func1()
 print(x)
@@ -166,30 +171,33 @@ print(x)
 # --------------------------------
 a = 20  # 전역변수
 
+
 def add_local():
-    a = 0      # 지역변수(함수 안에서 새로 만든 a)
+    a = 0  # 지역변수(함수 안에서 새로 만든 a)
     a += 1
     return a
 
+
 def add_global():
-    global a   # 전역 a를 수정하겠다는 선언(가능은 하지만 보통 지양)
+    global a  # 전역 a를 수정하겠다는 선언(가능은 하지만 보통 지양)
     a += 1
+
 
 print(add_local())  # 1
 add_global()
-print(a)            # 21
+print(a)  # 21
 
 
 # --------------------------------
 # 9) 리스트(list) 기본
 # --------------------------------
 nums = [1, 2, 3, 4]
-nums.append(5)     # 끝에 추가
-nums.remove(2)     # 값 2를 "한 개" 삭제
-del nums[0]        # 인덱스로 삭제
-nums[0] = 100      # 수정
+nums.append(5)  # 끝에 추가
+nums.remove(2)  # 값 2를 "한 개" 삭제
+del nums[0]  # 인덱스로 삭제
+nums[0] = 100  # 수정
 
-print(len(nums))   # 길이
+print(len(nums))  # 길이
 print(min(nums), max(nums))
 
 # 정렬/뒤집기(원본 변경됨)
@@ -198,7 +206,7 @@ nums.reverse()
 
 # sorted(): 원본 유지 + 새 리스트 반환
 nums2 = [3, 1, 4]
-rs = sorted(nums2)               # 오름차순
+rs = sorted(nums2)  # 오름차순
 rs_desc = sorted(nums2, reverse=True)
 print(nums2, rs, rs_desc)
 
@@ -206,13 +214,13 @@ print(nums2, rs, rs_desc)
 # --------------------------------
 # 10) 리스트 슬라이싱
 # --------------------------------
-a = [1,2,3,4,5,6,7,8,9,10]
-print(a[1:3])     # [2,3]  (1~(3-1))
-print(a[:3])      # [1,2,3]
-print(a[1:5:2])   # [2,4]
-print(a[2:])      # [3,4,5,6,7,8,9,10]
-print(a[:])       # 복사본
-print(a[::-1])    # 역순 복사본
+a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+print(a[1:3])  # [2,3]  (1~(3-1))
+print(a[:3])  # [1,2,3]
+print(a[1:5:2])  # [2,4]
+print(a[2:])  # [3,4,5,6,7,8,9,10]
+print(a[:])  # 복사본
+print(a[::-1])  # 역순 복사본
 
 
 # --------------------------------
@@ -240,9 +248,9 @@ print(a[::-1])    # 역순 복사본
 # 12) 딕셔너리(dict) = key:value
 # --------------------------------
 ages = {"철수": 10, "유리": 20, "짱구": 30}
-ages["맹구"] = 40     # 추가
-ages["유리"] = 21     # 수정
-del ages["짱구"]      # 삭제
+ages["맹구"] = 40  # 추가
+ages["유리"] = 21  # 수정
+del ages["짱구"]  # 삭제
 
 # 존재 확인
 print("철수" in ages)  # True/False
@@ -273,7 +281,10 @@ class Person:
         return f"name:{self.name}, age:{self.age}, home:{self.home}, hobby:{self.hobby}"
 
     def introduce(self):
-        print(f"저는 {self.home} 사는 {self.age}살, 취미는 {self.hobby}인 {self.name}입니다.")
+        print(
+            f"저는 {self.home} 사는 {self.age}살, 취미는 {self.hobby}인 {self.name}입니다."
+        )
+
 
 p1 = Person("홍길동", 23, "안산", "테니스")
 p2 = Person("김철수", 30, "서울", "축구")
